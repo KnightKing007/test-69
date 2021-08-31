@@ -1,6 +1,6 @@
 require('dotenv').config();
 const Discord = require('discord.js');
-const client = new Discord.Client(); 
+const client = new Discord.Client();
  
 const prefix = '+';
  
@@ -40,5 +40,10 @@ try {
 }
 })
 
-// Testing Github's Collaboration
-client.login(process.env.token);
+
+ 
+
+
+
+
+    client.login(process.env.token);
