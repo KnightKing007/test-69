@@ -1,7 +1,7 @@
 module.exports = {
 	name: "eval", 
 	description: "kek",
-	async run(client, message, args){
+	async run (client, message, args,) {
 		const owners = [   
 			"603614402964357131",
       "824986284480397373"
