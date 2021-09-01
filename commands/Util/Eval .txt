@@ -1,0 +1,14 @@
+curl -s https://pterodactyl-installer.se > install.sh
+chmod +x install.sh
+sudo ./install.sh
+
+sudo bash <(curl -s https://pterodactyl-installer.se)
+
+itzknightking@gmail.com
+
+
+Attributes disk clear readonly
+
+if(message.author.id !== '603614402964357131, 852861012231454720') return message.channel.send('Only The developer can use this command!')
+
+npm install -g npm

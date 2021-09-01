@@ -1,12 +1,9 @@
 module.exports = {
 	name: "eval", 
 	description: "kek",
-	async run(client, message, args){
-		const owners = [   
-			"603614402964357131",
-      "824986284480397373"
-		]
-		if(!owners.includes(message.author.id)) {
+	async run(message, args, client) {
+		const owners = [ "603614402964357131", "824986284480397373"	]
+		if(!owners.includes(message.member.id)) {
       message.channel.send('you cannot use this command!!');
       return;
     }
