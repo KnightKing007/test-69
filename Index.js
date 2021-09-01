@@ -1,6 +1,6 @@
 require('dotenv').config();
 const Discord = require('discord.js');
-const client = new Discord.Client(); 
+const client = new Discord.Client();
  
 const prefix = '+';
  
@@ -20,7 +20,7 @@ for (const folder of commandFolders) {
 }
 client.on('ready', () => {
   console.log(` ${client.user.tag}  is Online! `);
-	client.user.setActivity(' +help', { type: "LISTENING" })
+  client.user.setActivity(` ${prefix}help | Watching ${client.guilds.cache.size} servers`, { type: "LISTENING" })
 });
 
 
@@ -40,5 +40,10 @@ try {
 }
 })
 
-// Testing Github's Collaboration
-client.login(process.env.token);
+
+ 
+
+
+
+
+    client.login(process.env.token);
