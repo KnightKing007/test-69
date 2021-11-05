@@ -21,6 +21,9 @@ module.exports = {
              value: `${Math.round(client.ws.ping)}ms`,
              inline: false
          },
+         {
+             name: "Servers", value: `${client.guilds.cache.map(g=>g.name).join('\n')}`, inline: true
+         }
      )
      .setTimestamp()
      .setFooter(client.user.tag, client.user.displayAvatarURL());

@@ -1,43 +1,14 @@
-require('dotenv').config();
 const Discord = require('discord.js');
-const client = new Discord.Client();
- 
+const client = new Discord.Client({ partials: ["MESSAGE", "CHANNEL", "REACTION"]});
 const prefix = '+';
- 
-const fs = require('fs');
-const { type } = require('os');
- 
+require('dotenv').config();
+
 client.commands = new Discord.Collection();
- 
-const commandFolders = fs.readdirSync('./commands');
+client.events = new Discord.Collection();
 
-for (const folder of commandFolders) {
-    const commandFiles = fs.readdirSync(`./commands/${folder}`).filter(file => file.endsWith('.js'));
-    for (const file of commandFiles) {
-        const command = require(`./commands/${folder}/${file}`);
-        client.commands.set(command.name, command);
-    }
-}
-client.on('ready', () => {
-  console.log(` ${client.user.tag}  is Online! `);
-  client.user.setActivity(` ${prefix}help | Watching ${client.guilds.cache.size} servers`, { type: "LISTENING" })
-});
-
-
-client.on('message', async message => {
-	let prefix = '+'
-	if (!message.content.startsWith(prefix) || message.author.bot) return;
-
-	const args = message.content.slice(prefix.length).trim().split(/ +/);
-	const commandFolders = args.shift().toLowerCase();
-	if (!client.commands.has(commandFolders)) return;
-
-try {
-	client.commands.get(commandFolders).run(client, message, args,);
-} catch (error) {
-	console.error(error);
-	message.reply('Error 69 could not run that command :thinking:');
-}
+['command_handler', 'event_handler'].forEach(handler =>{
+    require(`./handlers/${handler}`)(client, Discord)
 })
+ 
 
-    client.login(process.env.token);
+client.login(process.env.token);
