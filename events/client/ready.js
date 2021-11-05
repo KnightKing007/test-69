@@ -3,7 +3,7 @@ module.exports = async (client) => {
 
     setTimeout(function() {
         client.user.setActivity(`${client.guilds.cache.size} guilds`, { type: 'WATCHING', });
-    }, 8000);
+    }, 5000);
 
     console.log(` ${client.user.tag}  is Online! `);
 }
