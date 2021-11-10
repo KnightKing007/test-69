@@ -14,7 +14,7 @@ module.exports = {
         axios.get("https://danbot.host/nodeStatus")
         .then(res => {
           let data = res.data.nodestatus;
-          console.log("Raw data is ", data);
+          // console.log("Raw data is ", data);
           let reply = `**__Nodes:__**\n`;
         
           for (let node in data)
@@ -42,16 +42,16 @@ module.exports = {
             text += `${statusEmoji} ${statusText}\n`;
             reply += text;
           }
-         console.log("Reply is", reply);
+        //  console.log("Reply is", reply);
 
-        //  sus = new Discord.MessageEmbed() 
-        //  .setTitle("Node Status")
-        //  .addFields({name: "Node Status", value: reply},)
-        //  .setColor(`#4E7DFF`)
-        //  .setTimestamp()
-        //  .setFooter(client.user.tag, client.user.displayAvatarURL());
+         sus = new Discord.MessageEmbed() 
+         .setTitle("Node Status")
+         .addFields({name: "Node Status", value: reply},)
+         .setColor(`#4E7DFF`)
+         .setTimestamp()
+         .setFooter(client.user.tag, client.user.displayAvatarURL());
 
-        //  message.channel.send(sus).then
+         message.channel.send(sus).then
          
          
         })

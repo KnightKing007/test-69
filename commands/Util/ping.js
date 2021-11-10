@@ -8,8 +8,11 @@ module.exports = {
     run: async (client, message, args) => {
 
      const embed = new Discord.MessageEmbed()
+     .setTitle('Pinging')
+
+     const embed2 = new Discord.MessageEmbed()
      .setTitle('Pong')
-     .setColor('RANDOM')
+     .setColor(`#74ab84`)
      .addFields(
          {
              name: "Latency",
@@ -23,11 +26,20 @@ module.exports = {
          },
          {
              name: "Servers", value: `${client.guilds.cache.map(g=>g.name).join('\n')}`, inline: true
-         }
+         } 
      )
      .setTimestamp()
      .setFooter(client.user.tag, client.user.displayAvatarURL());
-     message.channel.send(embed)
+
+     message.channel.send(embed).then(message => {
+
+     setTimeout(function() {
+        
+            message.edit(embed2)
+        })
+    }, 5000);
+
+
      message.react( "🏓" )
     }
 

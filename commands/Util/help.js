@@ -3,6 +3,7 @@ const { description } = require('../music/Leave')
 
 module.exports = {
     name: "help",
+    aliases: ["h"],
     Description: "sends the help command",
     async run (client, message, args,) {
 
